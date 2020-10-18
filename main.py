@@ -6,4 +6,9 @@ reddit = praw.Reddit(
     user_agent = "joke-of-the-day:v.1 (by /u/deCastillon)"
 )
 
-print(reddit.read_only)
+for post in reddit.subreddit("jokes").top("day", limit = 1):
+
+    title = post.title
+    body = post.selftext
+
+    print(title + "\n" + body)
